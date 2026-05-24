@@ -1,7 +1,7 @@
 import { createHmac } from 'crypto'
 import { MercadoPagoConfig, Payment } from 'mercadopago'
 import { createServiceClient } from '@/lib/supabase/server'
-import { getTenantConfig } from '@/lib/supabase/tenant'
+import { getTenantConfigFresh } from '@/lib/supabase/tenant'
 import { env } from '@/lib/config/env'
 import { orderConfirmationEmail } from '@/lib/email/templates'
 
@@ -49,7 +49,7 @@ export async function POST(req: Request) {
   const sb = createServiceClient()
   const TENANT_ID = env.NEXT_PUBLIC_TENANT_ID
 
-  const tenant = await getTenantConfig()
+  const tenant = await getTenantConfigFresh()
   if (!tenant.mp_access_token) {
     return new Response('OK', { status: 200 })
   }

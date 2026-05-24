@@ -32,3 +32,6 @@ const cachedFetchTenantConfig = unstable_cache(
 )
 
 export const getTenantConfig = isDev ? fetchTenantConfig : cachedFetchTenantConfig
+
+/** Siempre lee desde Supabase sin cache. Usar en webhooks y server actions críticos. */
+export const getTenantConfigFresh = fetchTenantConfig
