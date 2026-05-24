@@ -287,7 +287,6 @@ export function CheckoutForm({ mpPublicKey, zones }: CheckoutFormProps) {
                   <Payment
                     initialization={{
                       amount: orderTotal,
-                      preferenceId,
                       payer: {
                         email,
                         entityType: 'individual' as const,
@@ -298,7 +297,6 @@ export function CheckoutForm({ mpPublicKey, zones }: CheckoutFormProps) {
                         creditCard: 'all',
                         debitCard: 'all',
                         ticket: 'all',
-                        mercadoPago: 'all',
                         maxInstallments: 1,
                       },
                     }}
