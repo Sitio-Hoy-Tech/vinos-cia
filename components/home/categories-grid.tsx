@@ -47,7 +47,7 @@ export function CategoriesGrid({ categories }: Props) {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
           {categories.map((cat) => {
             const img =
               cat.image ??
@@ -79,9 +79,9 @@ export function CategoriesGrid({ categories }: Props) {
                   aria-hidden="true"
                 />
                 {/* Text */}
-                <div className="absolute bottom-0 left-0 right-0 p-5">
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5">
                   <h3
-                    className="mb-1 text-2xl font-light"
+                    className="mb-1 text-lg font-light sm:text-2xl"
                     style={{ fontFamily: 'var(--font-display)', color: '#fff' }}
                   >
                     {cat.name}
