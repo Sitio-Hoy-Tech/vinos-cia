@@ -62,6 +62,38 @@ async function fetchCategoriesWithImages() {
     .map((c) => ({ ...c, image: imageMap[c.id] ?? null }))
 }
 
+// Categorías con al menos un producto activo — para el header nav
+async function fetchNavCategories() {
+  const sb = createServiceClient()
+  const { data } = await sb
+    .from('products')
+    .select('categories ( id, name, slug, position )')
+    .eq('tenant_id', TENANT_ID)
+    .eq('active', true)
+    .not('category_id', 'is', null)
+
+  if (!data) return []
+
+  const seen = new Set<string>()
+  const cats: { id: string; name: string; slug: string; position: number }[] = []
+
+  for (const row of data) {
+    const cat = row.categories as unknown as { id: string; name: string; slug: string; position: number } | null
+    if (cat && !seen.has(cat.id)) {
+      seen.add(cat.id)
+      cats.push(cat)
+    }
+  }
+
+  return cats.sort((a, b) => a.position - b.position)
+}
+
+export const getNavCategories = isDev
+  ? fetchNavCategories
+  : unstable_cache(fetchNavCategories, [`nav-categories-${TENANT_ID}`], {
+      tags: [TAGS.CATEGORIES, TAGS.PRODUCTS],
+    })
+
 export const getCategories = isDev
   ? fetchCategories
   : unstable_cache(fetchCategories, [`categories-${TENANT_ID}`], {

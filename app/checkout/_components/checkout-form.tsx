@@ -287,6 +287,7 @@ export function CheckoutForm({ mpPublicKey, zones }: CheckoutFormProps) {
                   <Payment
                     initialization={{
                       amount: orderTotal,
+                      preferenceId,
                       payer: {
                         email,
                         entityType: 'individual' as const,
