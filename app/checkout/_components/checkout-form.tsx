@@ -333,6 +333,9 @@ export function CheckoutForm({ mpPublicKey, zones }: CheckoutFormProps) {
                       }
                     }}
                     onError={(error) => {
+                      const e = error as { type?: string; cause?: string; message?: string }
+                      // Ignorar errores no críticos (adblocker, tracking bloqueado, etc.)
+                      if (e?.type === 'non_critical') return
                       console.error('[Payment brick] error:', error)
                       setError('Ocurrió un error en el formulario de pago. Recargá la página e intentá de nuevo.')
                     }}
