@@ -33,9 +33,9 @@ export function Footer({ waPhone = '+543329808080', contactEmail = 'contacto@vin
     <footer className="footer-root">
       {/* Main footer */}
       <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 lg:grid-cols-4">
+          {/* Brand — ocupa las 2 columnas en mobile */}
+          <div className="col-span-2 md:col-span-1 lg:col-span-1">
             <Link href="/" aria-label="Vinos & Cia">
               <Image
                 src="/logo-vinos-cia.jpg"
