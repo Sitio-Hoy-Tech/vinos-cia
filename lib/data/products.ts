@@ -112,5 +112,5 @@ export const getProductBySlug = withCacheArgs(
     return data
   },
   [`product-${TENANT_ID}`],
-  { tags: [TAGS.PRODUCT('{slug}')] },
+  { tags: [TAGS.PRODUCT('{slug}'), TAGS.PRODUCTS] },
 )
