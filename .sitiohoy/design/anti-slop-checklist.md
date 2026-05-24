@@ -1,0 +1,23 @@
+# Anti Slop Checklist - Vinos & Cia
+
+- [ ] Inspiration board revisado antes de diseñar.
+- [ ] Hero específico del rubro y brief.
+- [ ] Paleta sale del brief, no de defaults violetas/azules.
+- [ ] Tipografias elegidas por personalidad.
+- [ ] Imagenes propias priorizadas.
+- [ ] Si faltan imagenes propias, Unsplash es especifico del producto/rubro y no stock generico.
+- [ ] Cards con funcion real.
+- [ ] Estados hover/focus/loading/empty/error.
+- [ ] Mobile 375px sin overflow.
+- [ ] Mobile 390px sin texto cortado ni CTAs apretados.
+- [ ] Tablet 768px sin layout roto.
+- [ ] Desktop 1280px y wide 1920px con composición cuidada.
+- [ ] Tap targets principales minimo 44px.
+- [ ] Contraste legible en hero, botones y cards.
+- [ ] No hay cards dentro de cards ni secciones flotantes decorativas.
+- [ ] No domina una sola familia de color sin contraste real.
+- [ ] Screenshots de `.sitiohoy/qa/visual/` revisados.
+- [ ] `.sitiohoy/qa/visual-report.json` queda OK.
+- [ ] Nota visual interna minima 8/10.
+- [ ] CTA principal coincide con plan: compra.
+- [ ] Schema y metadata no usan copy generico.

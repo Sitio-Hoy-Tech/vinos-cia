@@ -1,0 +1,144 @@
+{
+  "clientStatus": "nuevo",
+  "existingTenantId": null,
+  "business": {
+    "name": "Vinos & Cia",
+    "slug": "vinos-cia",
+    "industry": "Vinoteca",
+    "tagline": "Venta de bebidas y productos para vinos",
+    "description": "Venta de productos relacionados a bebidas, copas, espumantes, vinos y demas",
+    "differentiator": "Atención personalizada y vinos, espumantes de calidad",
+    "primaryGoal": "vender-online",
+    "visualReferences": [
+      "https://debarricas.com.ar/ https://bari.com.ar/"
+    ],
+    "competitors": [
+      "Los que creas",
+      "no tengo uno especifico"
+    ],
+    "location": {
+      "city": "Saenz 987, Baradero",
+      "province": "Buenos Aires"
+    },
+    "hours": "9:00am a 21:00pm"
+  },
+  "plan": "emprendimiento",
+  "technical": {
+    "mercadoPagoActive": true,
+    "correoArgentinoRequested": false,
+    "enviaRequested": false,
+    "resendRequested": true,
+    "domain": {
+      "status": "pending_purchase",
+      "value": ""
+    },
+    "editor": "claude-code",
+    "supabaseMcp": true,
+    "aiDesignerMcp": true
+  },
+  "audience": {
+    "profile": "Entre 25 - 70 años, apasionados del vino, espumantes y demas",
+    "problem": "Vinos de calidad, a un precio muy bueno.",
+    "desiredFeeling": "Exclusividad, confianza, elegencia y demas",
+    "ageRange": {
+      "from": 25,
+      "to": 70
+    },
+    "personality": [
+      "confiable",
+      "innovador",
+      "elegante",
+      "sofisticado",
+      "exclusivo"
+    ],
+    "tone": "exclusivo",
+    "primaryDevice": "mixed"
+  },
+  "visualIdentity": {
+    "colors": {
+      "defined": false,
+      "primary": "",
+      "secondary": "",
+      "accent": "",
+      "hints": "Los que creas necesarios para una vinoteca de alta calidad",
+      "fromLogo": true
+    },
+    "desiredMood": "Moderno, Elegante y Simple",
+    "style": "minimalista,premium,vintage",
+    "typography": "serif",
+    "navigation": "horizontal",
+    "imageTreatment": "overlay",
+    "ctaText": "Comprar ahora",
+    "corners": "mixed",
+    "heroLayout": "fullwidth",
+    "density": "compact",
+    "logo": {
+      "available": true,
+      "format": "jpg"
+    },
+    "photoQuality": "none"
+  },
+  "catalog": {
+    "initialCount": 5,
+    "categories": [
+      "Vinos",
+      "Espumantes",
+      "Copas"
+    ],
+    "hasVariants": true,
+    "priceRange": "",
+    "type": "physical",
+    "defaultWeightGrams": 500,
+    "weightEstimated": true,
+    "defaultDimensionsCm": {
+      "length": 20,
+      "width": 15,
+      "height": 8
+    }
+  },
+  "pages": {
+    "about": true,
+    "faq": true,
+    "contact": true,
+    "legal": true,
+    "blog": true,
+    "homepageSections": [
+      "hero",
+      "productos-destacados",
+      "categorias",
+      "sobre-nosotros",
+      "banners-promo",
+      "galeria",
+      "faq-inline",
+      "contacto-rapido"
+    ]
+  },
+  "contact": {
+    "whatsapp": "+543329808080",
+    "email": "contacto@vinosycia.com.ar",
+    "socials": [
+      {
+        "network": "instagram",
+        "url": "https://www.instagram.com/vinotecavyc/"
+      },
+      {
+        "network": "facebook",
+        "url": "https://www.facebook.com/vinosycompania/"
+      }
+    ],
+    "primarySocial": "instagram"
+  },
+  "assets": {
+    "folderReady": true,
+    "missing": [
+      "hero",
+      "productos"
+    ],
+    "faviconAvailable": true
+  },
+  "animations": "full",
+  "notes": [
+    "Peso promedio estimado en 500 g hasta confirmar productos reales.",
+    "Usar imagenes Unsplash relacionadas al rubro/categoria/producto hasta recibir fotos reales."
+  ]
+}

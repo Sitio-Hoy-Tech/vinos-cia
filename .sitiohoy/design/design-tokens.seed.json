@@ -1,0 +1,21 @@
+{
+  "color": {
+    "primary": "",
+    "secondary": "",
+    "accent": ""
+  },
+  "font": {
+    "display": "DM Serif Display",
+    "body": "DM Sans"
+  },
+  "radius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "16px"
+  },
+  "layout": {
+    "primaryDevice": "mixed",
+    "hero": "Hero editorial tipografico con color solido y composicion fuerte, sin stock generico.",
+    "catalog": "Grid 2 columnas mobile, 3/4 desktop, cards con precio, stock y agregar al carrito."
+  }
+}

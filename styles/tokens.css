@@ -1,0 +1,112 @@
+:root {
+  /* --- Paleta Vinos & Cia --- */
+  /* Borgoña profundo (vino tinto) */
+  --color-primary: #722F37;
+  --color-primary-hover: #5a2329;
+  --color-primary-foreground: #FAF8F5;
+
+  /* Carbón oscuro (del logo) */
+  --color-secondary: #18181B;
+  --color-secondary-hover: #27272A;
+  --color-secondary-foreground: #FAF8F5;
+
+  /* Dorado champagne */
+  --color-accent: #C9A96E;
+  --color-accent-hover: #b8944f;
+  --color-accent-foreground: #18181B;
+
+  /* Crema cálida (background principal) */
+  --color-bg: #FAF8F5;
+  --color-surface: #F3F0EA;
+  --color-surface-alt: #EAE5DB;
+
+  /* Texto */
+  --color-text: #18181B;
+  --color-text-muted: #6B6B6B;
+  --color-text-light: #A1A1A1;
+
+  /* Bordes */
+  --color-border: #DDD8CF;
+  --color-border-strong: #C5BFB3;
+
+  /* Feedback */
+  --color-success: #2D6A4F;
+  --color-error: #C0392B;
+  --color-warning: #D4A017;
+
+  /* --- Tipografía --- */
+  --font-display: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-body: var(--font-jost), 'Jost', system-ui, sans-serif;
+
+  /* Escala tipográfica */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  --text-5xl: 3rem;      /* 48px */
+  --text-6xl: 3.75rem;   /* 60px */
+
+  /* Line heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
+
+  /* --- Radios --- */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* --- Espaciado --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Sombras --- */
+  --shadow-sm: 0 1px 3px 0 rgb(24 24 27 / 0.08);
+  --shadow-md: 0 4px 16px 0 rgb(24 24 27 / 0.10);
+  --shadow-lg: 0 10px 40px 0 rgb(24 24 27 / 0.14);
+  --shadow-gold: 0 4px 20px 0 rgb(201 169 110 / 0.25);
+
+  /* --- Transiciones --- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Layout --- */
+  --container-max: 1280px;
+  --container-md: 768px;
+  --header-height: 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
