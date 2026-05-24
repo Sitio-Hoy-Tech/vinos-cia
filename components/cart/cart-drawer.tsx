@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { X, Minus, Plus, ShoppingBag, Trash2 } from 'lucide-react'
 import { useCartStore } from '@/lib/store/cart'
+import { refreshCartPrices } from '@/lib/actions/cart'
 
 function formatPrice(n: number) {
   return new Intl.NumberFormat('es-AR', {
@@ -15,9 +16,22 @@ function formatPrice(n: number) {
 }
 
 export function CartDrawer() {
-  const { items, isOpen, closeCart, removeItem, updateQuantity, subtotal } =
+  const { items, isOpen, closeCart, removeItem, updateQuantity, subtotal, updatePrices } =
     useCartStore()
   const drawerRef = useRef<HTMLDivElement>(null)
+
+  // Refrescar precios desde BD cada vez que se abre el carrito
+  useEffect(() => {
+    if (!isOpen || items.length === 0) return
+    const toRefresh = items.map((i) => ({
+      id: i.id,
+      productId: i.productId,
+      variantId: i.variantId,
+    }))
+    refreshCartPrices(toRefresh).then((updates) => {
+      if (updates.length) updatePrices(updates)
+    })
+  }, [isOpen]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Trap focus & close on Escape
   useEffect(() => {

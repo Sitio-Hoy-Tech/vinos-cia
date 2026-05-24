@@ -27,6 +27,7 @@ interface CartStore {
   removeItem: (id: string) => void
   updateQuantity: (id: string, quantity: number) => void
   clearCart: () => void
+  updatePrices: (updates: { id: string; price: number; stock: number; stockUnlimited: boolean }[]) => void
   itemCount: () => number
   subtotal: () => number
 }
@@ -89,6 +90,14 @@ export const useCartStore = create<CartStore>()(
       },
 
       clearCart: () => set({ items: [] }),
+
+      updatePrices: (updates) =>
+        set((s) => ({
+          items: s.items.map((item) => {
+            const u = updates.find((u) => u.id === item.id)
+            return u ? { ...item, price: u.price, stock: u.stock, stockUnlimited: u.stockUnlimited } : item
+          }),
+        })),
 
       itemCount: () => get().items.reduce((sum, i) => sum + i.quantity, 0),
 
