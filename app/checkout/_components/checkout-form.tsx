@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { initMercadoPago, Payment } from '@mercadopago/sdk-react'
 import { useCartStore } from '@/lib/store/cart'
 import { createCheckoutPreference, processPayment } from '@/lib/actions/checkout'
+import { refreshCartPrices } from '@/lib/actions/cart'
 import type { ShippingZone } from '@/lib/data/shipping'
 
 function formatPrice(n: number) {
@@ -24,7 +25,7 @@ interface CheckoutFormProps {
 
 export function CheckoutForm({ mpPublicKey, zones }: CheckoutFormProps) {
   const router = useRouter()
-  const { items, subtotal, clearCart } = useCartStore()
+  const { items, subtotal, clearCart, updatePrices } = useCartStore()
   const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | null>(null)
   const [preferenceId, setPreferenceId] = useState<string | null>(null)
@@ -45,6 +46,15 @@ export function CheckoutForm({ mpPublicKey, zones }: CheckoutFormProps) {
   const isRetiro = selectedZone?.price === 0
   const shippingCost = selectedZone?.price ?? 0
   const total = subtotal() + shippingCost
+
+  // Refrescar precios desde BD al entrar al checkout
+  useEffect(() => {
+    if (!items.length) return
+    const toRefresh = items.map((i) => ({ id: i.id, productId: i.productId, variantId: i.variantId }))
+    refreshCartPrices(toRefresh).then((updates) => {
+      if (updates.length) updatePrices(updates)
+    })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (mpPublicKey) {
