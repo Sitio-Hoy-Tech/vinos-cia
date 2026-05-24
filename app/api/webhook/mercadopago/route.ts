@@ -29,15 +29,20 @@ export async function POST(req: Request) {
     }
   }
 
-  let payload: { type?: string; data?: { id?: string } }
+  let payload: { type?: string; action?: string; data?: { id?: string } }
   try {
     payload = JSON.parse(body)
   } catch {
     return new Response('Bad Request', { status: 400 })
   }
 
-  // Solo procesar notificaciones de pago
-  if (payload.type !== 'payment' || !payload.data?.id) {
+  // Soportar formato legacy (type: 'payment') y v2 (action: 'payment.created' / 'payment.updated')
+  const isPaymentEvent =
+    payload.type === 'payment' ||
+    (payload.action?.startsWith('payment') ?? false)
+  const paymentId = payload.data?.id
+
+  if (!isPaymentEvent || !paymentId) {
     return new Response('OK', { status: 200 })
   }
 
@@ -55,7 +60,7 @@ export async function POST(req: Request) {
 
   let payment
   try {
-    payment = await paymentClient.get({ id: payload.data.id })
+    payment = await paymentClient.get({ id: paymentId })
   } catch {
     return new Response('OK', { status: 200 })
   }
