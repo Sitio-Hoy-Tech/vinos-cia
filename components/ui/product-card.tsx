@@ -87,37 +87,39 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.name}
         </Link>
 
-        <div className="flex items-baseline gap-2">
-          <span className="product-card__price">{formatPrice(product.price)}</span>
-          {hasDiscount && (
-            <span className="product-card__compare">
-              {formatPrice(product.compare_at_price!)}
-            </span>
+        <div className="mt-auto flex flex-col gap-2 pt-1">
+          <div className="flex items-baseline gap-2">
+            <span className="product-card__price">{formatPrice(product.price)}</span>
+            {hasDiscount && (
+              <span className="product-card__compare">
+                {formatPrice(product.compare_at_price!)}
+              </span>
+            )}
+          </div>
+
+          {hasVariants ? (
+            <Link
+              href={`/productos/${product.slug}`}
+              className="add-to-cart-btn add-to-cart-btn--sm flex w-full items-center justify-center"
+            >
+              Ver opciones
+            </Link>
+          ) : (
+            <AddToCartButton
+              product={{
+                id: product.id,
+                slug: product.slug,
+                name: product.name,
+                price: product.price,
+                stock: product.stock,
+                stockUnlimited: product.stock_unlimited,
+                image: image?.url,
+              }}
+              size="sm"
+              className="w-full"
+            />
           )}
         </div>
-
-        {hasVariants ? (
-          <Link
-            href={`/productos/${product.slug}`}
-            className="add-to-cart-btn add-to-cart-btn--sm mt-2 flex w-full items-center justify-center"
-          >
-            Ver opciones
-          </Link>
-        ) : (
-          <AddToCartButton
-            product={{
-              id: product.id,
-              slug: product.slug,
-              name: product.name,
-              price: product.price,
-              stock: product.stock,
-              stockUnlimited: product.stock_unlimited,
-              image: image?.url,
-            }}
-            size="sm"
-            className="mt-2 w-full"
-          />
-        )}
       </div>
     </article>
   )

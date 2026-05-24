@@ -188,6 +188,7 @@ img {
   flex-direction: column;
   gap: 0.375rem;
   padding: 0.875rem;
+  flex: 1;
 }
 
 .product-card__name {
