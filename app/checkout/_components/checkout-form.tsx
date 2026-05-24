@@ -297,6 +297,7 @@ export function CheckoutForm({ mpPublicKey, zones }: CheckoutFormProps) {
                         creditCard: 'all',
                         debitCard: 'all',
                         ticket: 'all',
+                        mercadoPago: 'all',
                         maxInstallments: 1,
                       },
                     }}
